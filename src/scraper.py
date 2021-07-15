@@ -25,7 +25,7 @@ def Auslan(text: str):
 		if len(page.history) == 1: # If not redirected
 			redirect = soup.find("table").find("p").find("a") # Get first "relevant result" 
 
-			if redirect.text == query: # If the suggestion is what we originally searched for
+			if redirect.text == query: # If the suggestion is what we originally searched for:
 				redirect = redirect.get("href") # Get redirect page
 				page = requests.get(URL + redirect.replace("/dictionary/", ""))
 				soup = BeautifulSoup(page.content, "html.parser")
